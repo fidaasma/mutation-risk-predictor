@@ -124,18 +124,6 @@ if st.button("🔍 Predict Mutation Risk"):
     prediction = model.predict(df_input.values)[0]
     probability = model.predict_proba(df_input.values)[0][1]
 
-
-
-
-    # Encode categorical columns
-    for col in encoders:
-        df_input[col] = encoders[col].transform(
-            df_input[col].astype(str)
-        )
-
-    prediction = model.predict(df_input)[0]
-    probability = model.predict_proba(df_input)[0][1]
-
     st.markdown("---")
 
     if prediction == 1:
